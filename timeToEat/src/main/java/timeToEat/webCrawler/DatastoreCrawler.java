@@ -55,32 +55,11 @@ public class DatastoreCrawler {
 	private static final String PAGE = "http://chicken.kiev.ua/listall.phtml";
 	private static Logger LOG = Logger.getLogger(DatastoreCrawler.class.getName());
 	
-	/** Creates a crawler object */
-	public DatastoreCrawler() throws SQLException
-	{
-	//	PAGE = "http://chicken.kiev.ua/listall.phtml";
-	}
-	
 	/** Deletes the old crawl and clears the*/
 	public static boolean startCrawl() throws SQLException, IOException {
-		// filling the crawler's database with links to crawl
-		//getLinksDatastore();
-		
-		// scraping every page saved in the crawler's DB
-		// for info and dynamically updating the main DB
-		//startScraping();
-
 		return true;
 	}
-		
-	/**
-	 *  Removes old records from the main DB before 
-	 *  screen scraping each page in the crawler's DB
-	 *  and dynamically updating the main DB. 
-	 *  
-	 *  It takes ~180 minutes to update the database 
-	 *	DO NOT ADJUST THE TIME or you WILL get BANNED!
-	 */
+
 	public static void startScraping(int k) {
 		try {
 			List<RestLink> mainQuery = timeToEat.service.OfyService.ofy().load().type(RestLink.class).list();
@@ -117,7 +96,7 @@ public class DatastoreCrawler {
 		String strName = name.text();
 		
 		//Unfinished page on chicken.kiev.ua CHECK
-		if (name.equals("��") || name.contains("�����"))	
+		if (name.equals("«»") || name.contains("Скоро"))	
 			return;
 		
 		// getting the table containing the rest of the data
