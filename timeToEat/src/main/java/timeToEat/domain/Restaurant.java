@@ -54,7 +54,8 @@ public class Restaurant {
 		network = false;
 	}
 	public void networkAvailable(){
-		network = true;
+		if(this.location.size() > 1 )network = true;
+		else network = false;
 	}
 	public Long getRestaurantId(){
 		return this.restaurantId;

@@ -272,14 +272,11 @@ public class Time2EatApi {
     		path = "copyDB",
     		httpMethod = HttpMethod.GET)
     public void copyDB() throws SQLException, IOException{
-    	DatastoreCrawler.startCrawlTest();
-    }
-    @ApiMethod(
-    		name ="fillDB",
-    		path = "fillDB",
-    		httpMethod = HttpMethod.GET)
-    public void fill() throws SQLException, IOException{
-    	DatastoreCrawler.testLoadService();
+    	List<Restaurant> query = ofy().load().type(Restaurant.class).list();
+    	for(Restaurant res: query){
+    		res.networkAvailable();
+    		ofy().save().entity(res).now();
+    	}
     }
 }
 
