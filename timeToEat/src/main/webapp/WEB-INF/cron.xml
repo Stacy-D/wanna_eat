@@ -80,4 +80,9 @@
         <description>Adding and updating info 4of the website</description>
         <schedule>every day 04:42</schedule>
     </cron>
+    <cron>
+   		<url>/crons/translate_kitchen</url>
+    	<description>Translation of cuisine</description>
+    	<schedule> every monday 00:00 </schedule>
+    </cron>
 </cronentries>

@@ -78,6 +78,13 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.35</version>
 		</dependency>
+		<!-- Translate Microsoft Api -->
+		<dependency>
+   		 	<groupId>com.memetix</groupId>
+   			<artifactId>microsoft-translator-java-api</artifactId>
+    		<version>0.6.2</version>
+   			<type>jar</type>
+		</dependency>
 		<dependency>
 			<groupId>org.jsoup</groupId>
 			<artifactId>jsoup</artifactId>

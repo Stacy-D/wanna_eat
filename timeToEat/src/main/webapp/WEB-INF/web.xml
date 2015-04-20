@@ -8,13 +8,22 @@
             <param-value>timeToEat.spi.Time2EatApi</param-value>
         </init-param>
     </servlet>
+    
      <servlet>
         <servlet-name>DataLoaderServlet</servlet-name>
         <servlet-class>timeToEat.Servlet.DataLoaderServlet</servlet-class>
     </servlet>
+     <servlet>
+        <servlet-name>TranslateServlet</servlet-name>
+        <servlet-class>timeToEat.Servlet.TranslateServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SystemServiceServlet</servlet-name>
         <url-pattern>/_ah/spi/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TranslateServlet</servlet-name>
+        <url-pattern>/crons/translate_kitchen</url-pattern>
     </servlet-mapping>
         <servlet-mapping>
         <servlet-name>DataLoaderServlet</servlet-name>
