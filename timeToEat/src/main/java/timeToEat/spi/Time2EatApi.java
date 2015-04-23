@@ -268,10 +268,10 @@ public class Time2EatApi {
     	return answer;
     }
     @ApiMethod(
-    		name ="copyDB",
-    		path = "copyDB",
+    		name ="checkNetwork",
+    		path = "checkNetwork",
     		httpMethod = HttpMethod.GET)
-    public void copyDB() throws SQLException, IOException{
+    public void checkNetwork() throws IOException{
     	List<Restaurant> query = ofy().load().type(Restaurant.class).list();
     	for(Restaurant res: query){
     		res.networkAvailable();
