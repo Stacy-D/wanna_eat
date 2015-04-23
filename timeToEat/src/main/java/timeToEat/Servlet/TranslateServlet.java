@@ -47,8 +47,8 @@ public class TranslateServlet extends HttpServlet {
 		}
 	}
 	private void translateData(){
-		Translate.setClientId("time-2-eat");
-	    Translate.setClientSecret("OOzOFv3S/F3TDXoPbgQUv3suvvzfRsszYkHg1Y7iHLs=");
+		Translate.setClientId("ID");
+	    Translate.setClientSecret("KEY");
 	    String cuisine = null;
 		List<Restaurant> rests = ofy().load().type(Restaurant.class).list();
 		int i = 5;
