@@ -9,10 +9,21 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/camera.css">
     <link rel="stylesheet" href="css/jquery.fancybox.css">
-
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <script src="js/jquery.js"></script>
     <script src="js/jquery-migrate-1.2.1.js"></script>
-
+ <script type="text/javascript">
+  (function() {
+    var po = document.createElement('script');
+    po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://plus.google.com/js/client:plusone.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+  })();
+  </script>
     <!--[if lt IE 9]>
     <html class="lt-ie9">
     <div style=' clear: both; text-align:center; position: relative;'>
@@ -25,6 +36,9 @@
     <![endif]-->
  
     <script src='js/device.min.js'></script> 
+    
+   
+
 </head>
 
 <body>
@@ -239,7 +253,15 @@
     <footer>
         <div class="container">
             <ul class="socials">
-               <img data-src="images/GooglePlusLogo.jpg" alt="">
+              <span class = "g-signin"
+              data-scope= "openid"
+              data-clienid = "633418470364-0cisa1j66o6s2tm6j9ol0d31s872cv8l.apps.googleusercontent.com"
+              data-redirecturi = "postmessage"
+              data-accesstype = "offline"
+              data-cookipolicy = "single_host_origin"
+              data-callback = "signInCallback"
+              data-approvalprompt = "force">
+              </span>
 
               
             </ul>
