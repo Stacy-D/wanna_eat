@@ -118,9 +118,9 @@ public class RestaurantQueryForm {
      */
     public static enum Field {
         NAME("name", FieldType.STRING),
-        MAX_PRICE("maxPrice", FieldType.STRING),
+        MAX_PRICE("maxPrice", FieldType.INTEGER),
         CUISINE("cuisine", FieldType.STRING),
-        MIN_PRICE("minPrice", FieldType.DOUBLE);
+        MIN_PRICE("minPrice", FieldType.INTEGER);
 
         private String fieldName;
 

@@ -238,6 +238,10 @@ public class Time2EatApi {
     public List<Restaurant> queryRestaurants(RestaurantQueryForm resForm){
     	 Iterable<Restaurant> restaurantIterable = resForm.getQuery();
          List<Restaurant> result = new ArrayList<>(0);
+         for(Restaurant res: restaurantIterable )
+         {
+        	result.add(res); 
+         }
          return result;
     }
     /**

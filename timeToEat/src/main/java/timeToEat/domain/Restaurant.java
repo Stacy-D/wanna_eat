@@ -34,7 +34,9 @@ public class Restaurant {
 	 */
 	@Index
 	private ArrayList<GeoPt> location;
-	private double maxPrice;
+	@Index
+	double maxPrice;
+	@Index
 	private double minPrice;
 	@Index
 	private boolean network;
@@ -197,5 +199,28 @@ public class Restaurant {
     	if(maxPriceN!= this.maxPrice || maxPriceN == 0) this.maxPrice = maxPriceN;
     	if(minPriceN!= this.minPrice || minPriceN == 0) this.minPrice = minPriceN;
     }
-    
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder("Id: " + restaurantId + "\n")
+                .append("Name: ").append(name).append("\n");
+        if (cuisine != null && cuisine.size() > 0) {
+            stringBuilder.append("Cuisine: ");
+            for(String k: cuisine)
+            {
+            	stringBuilder.append(k).append(',');
+            }
+            stringBuilder.append("\n");
+        }
+        if (address != null && address.size() > 0) {
+            stringBuilder.append("Address:\n");
+            for (String topic : address) {
+                stringBuilder.append("\t").append(topic).append("\n");
+            }
+        }
+            stringBuilder.append("MaxPrice: ").append(maxPrice).append("\n");
+            stringBuilder.append("MinPrice: ").append(minPrice).append("\n");
+        return stringBuilder.toString();
+    }
+
 }
