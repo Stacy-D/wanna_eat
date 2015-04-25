@@ -49,6 +49,10 @@ public class RestaurantQueryForm {
                 query = query.filter(String.format("%s %s", filter.field.getFieldName(),
                         filter.operator.getQueryOperator()), Integer.parseInt(filter.value));
             }
+            else if (filter.field.fieldType == FieldType.DOUBLE) {
+                query = query.filter(String.format("%s %s", filter.field.getFieldName(),
+                        filter.operator.getQueryOperator()), Integer.parseInt(filter.value));
+            }
         }
         LOG.info(query.toString());
         return query;
@@ -113,10 +117,10 @@ public class RestaurantQueryForm {
      * Enum representing a field.
      */
     public static enum Field {
-        CITY("city", FieldType.STRING),
-        TOPIC("topics", FieldType.STRING),
-        MONTH("month", FieldType.INTEGER),
-        MAX_ATTENDEES("maxAttendees", FieldType.INTEGER);
+        NAME("name", FieldType.STRING),
+        MAX_PRICE("maxPrice", FieldType.STRING),
+        CUISINE("cuisine", FieldType.STRING),
+        MIN_PRICE("minPrice", FieldType.DOUBLE);
 
         private String fieldName;
 
@@ -133,7 +137,7 @@ public class RestaurantQueryForm {
     }
 
     public static enum FieldType {
-        STRING, INTEGER
+        STRING, INTEGER, ARRAYLIST, DOUBLE
     }
     /**
      * A list of query filters.
