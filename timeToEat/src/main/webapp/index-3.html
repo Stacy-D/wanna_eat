@@ -10,6 +10,8 @@
 
     <script src="js/jquery.js"></script>
     <script src="js/jquery-migrate-1.2.1.js"></script>
+    <script src= "js/OAuth2v0.js"></script>
+    <script src = "js/controllers.js"></script>
 
     <!--[if lt IE 9]>
     <html class="lt-ie9">
@@ -21,11 +23,26 @@
     </div>
     <script src="js/html5shiv.js"></script>
     <![endif]-->
- 
+  <script>
+        /**
+         * Initializes the Google API JavaScript client. Bootstrap the angular module after loading the Google libraries
+         * so that Google JavaScript library ready in the angular modules.
+         */
+        function init() {
+            gapi.client.load('conference', 'v1', null, '//' + window.location.host + '/_ah/api');
+            gapi.client.load('oauth2', 'v2', function () {
+                angular.bootstrap(document, ['conferenceApp']);
+            });
+        };
+    </script>
+    <script src="//apis.google.com/js/client:plusone.js?onload=init"></script>
+</head>
     <script src='js/device.min.js'></script> 
 </head>
 
 <body>
+<body ng-controller="RootCtrl" ng-init="initSignInButton()">
+
 <div class="page">
     <!--========================================================
                               HEADER
@@ -124,8 +141,10 @@
     <footer>
         <div class="container">
             <ul class="socials">
-                <li><a href="images/social_googlea_box.jpg" class="fa fa-google-plus"></a></li>
-                
+               <ul class="nav navbar-nav navbar-right">
+                <li id="signInLink" ng-hide="getSignedInState()"><a ng-click="signIn(); collapseNavbar()"> SignIn</a></li>
+                <li id="signOutLink" ng-show="getSignedInState()"><a ng-click="signOut(); collapseNavbar()">Log out</a></li>
+            </ul>  
             </ul>
             <div class="copyright">© <span id="copyright-year"></span> |
                 <a href="Index.html">#timeToEat</a>
