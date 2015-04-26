@@ -100,11 +100,13 @@ public class Time2EatApi {
     @ApiMethod(name ="getRestaurants", path = "restaurant/getrestaurants", httpMethod = HttpMethod.POST)
     public List<Restaurant> getRestaurants(GeoPt myLocation){
     List<Restaurant> query = ofy().load().type(Restaurant.class).list();
+    List<Restaurant> answer = new ArrayList<Restaurant>(0);
     for(Restaurant rest:query){
-    	if(closestLocation(myLocation,rest.getLocation())>2){
-    		query.remove(rest);
+    	if(closestLocation(myLocation,rest.getLocation())<5){
+    		answer.add(rest);
     	}
     }
+    LOG.info(query.toString());
     return query;
     }
     /**
@@ -220,6 +222,7 @@ public class Time2EatApi {
     	double distance = haversineDistance(myLocation, answer);
     	double temp = 0;
     	while(restaurantLoc.iterator().hasNext()){
+    		LOG.info(String.valueOf(temp));
     		temp = haversineDistance(myLocation, restaurantLoc.iterator().next());
     		if(distance > temp){ distance = temp;
     		}

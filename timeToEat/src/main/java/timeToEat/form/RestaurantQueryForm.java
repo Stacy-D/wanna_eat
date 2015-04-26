@@ -49,10 +49,6 @@ public class RestaurantQueryForm {
                 query = query.filter(String.format("%s %s", filter.field.getFieldName(),
                         filter.operator.getQueryOperator()), Integer.parseInt(filter.value));
             }
-            else if (filter.field.fieldType == FieldType.DOUBLE) {
-                query = query.filter(String.format("%s %s", filter.field.getFieldName(),
-                        filter.operator.getQueryOperator()), Integer.parseInt(filter.value));
-            }
         }
         LOG.info(query.toString());
         return query;
@@ -137,7 +133,7 @@ public class RestaurantQueryForm {
     }
 
     public static enum FieldType {
-        STRING, INTEGER, ARRAYLIST, DOUBLE
+        STRING, INTEGER
     }
     /**
      * A list of query filters.
