@@ -1,0 +1,30 @@
+<!-- Indices written at Wed, 7 Jan 2015 14:10:28 EET -->
+
+<datastore-indexes>
+<datastore-index kind="Restaurant" ancestor="false" source = "auto">
+<property name="name" direction="asc"/>
+<property name="cuisine" direction="asc"/>
+</datastore-index>
+<datastore-index kind="Restaurant" ancestor="false" source = "auto">
+<property name="cuisine" direction="asc"/>
+<property name="minPrice" direction="asc"/>
+<property name="name" direction="asc"/>
+</datastore-index>
+<datastore-index kind="Restaurant" ancestor="false" source = "auto">
+<property name="cuisine" direction="asc"/>
+<property name="name" direction="asc"/>
+</datastore-index>
+<datastore-index kind="Restaurant" ancestor="false" source = "auto">
+<property name="maxPrice" direction="asc"/>
+<property name="name" direction="asc"/>
+</datastore-index>
+<datastore-index kind="Restaurant" ancestor="false" source = "auto">
+<property name="maxPrice" direction="asc"/>
+</datastore-index>
+<datastore-index kind="Restaurant" ancestor="false" source = "auto">
+<property name="minPrice" direction="asc"/>
+</datastore-index>
+<datastore-index kind="Restaurant" ancestor="false" source = "auto">
+<property name="name" direction="asc"/>
+</datastore-index>
+</datastore-indexes>
