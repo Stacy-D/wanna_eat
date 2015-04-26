@@ -102,7 +102,7 @@ public class Time2EatApi {
     List<Restaurant> query = ofy().load().type(Restaurant.class).list();
     List<Restaurant> answer = new ArrayList<Restaurant>(0);
     for(Restaurant rest:query){
-    	if(closestLocation(myLocation,rest.getLocation())<5){
+    	if(closestLocation(myLocation,rest.getLocation()) < 2){
     		answer.add(rest);
     	}
     }
@@ -218,14 +218,12 @@ public class Time2EatApi {
     }
     private double closestLocation(GeoPt myLocation, List<GeoPt> restaurantLoc){
     	if(restaurantLoc.size() == 1) return haversineDistance(myLocation, restaurantLoc.get(0));
-    	GeoPt answer = restaurantLoc.iterator().next();
-    	double distance = haversineDistance(myLocation, answer);
+    	double distance = haversineDistance(myLocation, restaurantLoc.get(0));
     	double temp = 0;
-    	while(restaurantLoc.iterator().hasNext()){
-    		LOG.info(String.valueOf(temp));
-    		temp = haversineDistance(myLocation, restaurantLoc.iterator().next());
-    		if(distance > temp){ distance = temp;
-    		}
+    	for(GeoPt geo: restaurantLoc)
+    	{
+    		temp = haversineDistance(myLocation, geo);
+    		if(temp < distance) distance = temp;
     	}
     	return distance;
     }
@@ -263,7 +261,7 @@ public class Time2EatApi {
     	Profile profile = getProfile(user);
     	List<String> places = profile.getFavouritePlaces();
     	if(places.size() == 0) return new ArrayList<Restaurant>(0);
-    	List<Restaurant> answer = new ArrayList<Restaurant>();
+    	List<Restaurant> answer = new ArrayList<Restaurant>(0);
     	for(String webKey: places){
     		Key<Restaurant> restaurantKey = Key.create(webKey);
     		Restaurant temp = ofy().load().key(restaurantKey).now();
