@@ -1018,26 +1018,3 @@ footer .tm {
 .map_locations {
   display: none;
 }
-
-/*---To try------*/
-/* To disable the Google+ Sign In Button, but gapi.signin.render should be invoked to store the credential
-   if that is stored in cookie. */
-#signInButton iframe {
-    display: none;
-}
-#profile-container {
-    float: right;
-    font-size: 85%;
-}
-
-#profile img {
-    max-height: 35px;
-    width: auto;
-    vertical-align: middle;
-}
-
-ul#filters {
-    list-style: none;
-    padding-left: 0px;
-    font-size: 85%;
-}
