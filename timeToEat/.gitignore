@@ -12,3 +12,7 @@ out
 .settings
 .classpath
 .project
+/target/
+/target/
+/target/
+/target/

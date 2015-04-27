@@ -15,7 +15,7 @@ var conferenceApp = conferenceApp || {};
  * Angular module for controllers.
  *
  */
-conferenceApp.controllers = angular.module('conferenceControllers', ['ui.bootstrap']);
+conferenceApp.controllers = angular.module('restaurantControllers', ['ui.bootstrap']);
 
 /**
  * @ngdoc controller
@@ -35,19 +35,7 @@ conferenceApp.controllers.controller('MyProfileCtrl',
          */
         $scope.initialProfile = {};
 
-        /**
-         * Candidates for the teeShirtSize select box.
-         * @type {string[]}
-         */
-        $scope.teeShirtSizes = [
-            'XS',
-            'S',
-            'M',
-            'L',
-            'XL',
-            'XXL',
-            'XXXL'
-        ];
+
 
         /**
          * Initializes the My profile page.
@@ -66,7 +54,6 @@ conferenceApp.controllers.controller('MyProfileCtrl',
                             } else {
                                 // Succeeded to get the user profile.
                                 $scope.profile.displayName = resp.result.displayName;
-                                $scope.profile.teeShirtSize = resp.result.teeShirtSize;
                                 $scope.initialProfile = resp.result;
                             }
                         });
@@ -110,7 +97,6 @@ conferenceApp.controllers.controller('MyProfileCtrl',
                             $scope.submitted = false;
                             $scope.initialProfile = {
                                 displayName: $scope.profile.displayName,
-                                teeShirtSize: $scope.profile.teeShirtSize
                             };
 
                             $log.info($scope.messages + JSON.stringify(resp.result));
